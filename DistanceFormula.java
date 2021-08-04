@@ -28,7 +28,7 @@ public class DistanceFormula {
     }
     public static void main(String[] args)  {
         double x1,y1,x2,y2,distance;
-        
+        Scanner s = new Scanner(System.in); 
         x1=scanDouble("Abscissa for first coordinate(x1)=", s);
         y1=scanDouble("Ordinate for first coordinate(y1)=", s);
         x2=scanDouble("Abscissa for first coordinate(x2)=", s);
