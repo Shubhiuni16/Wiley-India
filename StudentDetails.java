@@ -48,6 +48,19 @@ enum Courses {
 }
 
 class Student {
+    static final String COLLEGE = "Hogwarts Magical School";
+    static final int YEAR_OF_ADMISSION = 2021;
+    final long regdNo;
+    String name;
+    Courses course;
+    String[] subjects;
+
+    // Parameterized constructor
+    Student(long regdNo, String name, Courses course, String[] subjects) {
+        this.regdNo = regdNo;
+        this.name = name;
+        this.course = course;
+        this.subjects = subjects;
 public class NewAdmission {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
