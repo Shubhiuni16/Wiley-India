@@ -1,6 +1,6 @@
 import java.util.*;
 public class Subarray {
-    public static boolean subarray(int[] a,int[] b,int n,int m){
+    static boolean subarray(int[] a,int[] b,int n,int m){
         Arrays.sort(a);  
         Arrays.sort(b);   
         int t=0; 
@@ -25,6 +25,27 @@ public class Subarray {
         }
         return f;
     }
+    static boolean checkCondition(int[] a,int[] b,int n,int m){
+        int c=0;
+        for(int i=0;i<n;++i){
+            boolean found=false;
+            for(int j=0;j<m;++j){
+                if(a[i]==b[j]){
+                    found=true;
+                    break;
+                }
+            }
+            if(found==false){
+                c++;
+            }
+        }
+        if(c==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
@@ -37,7 +58,11 @@ public class Subarray {
         for(int i=0;i<m;++i){
             b[i]=sc.nextInt();
         }
-        System.out.print(subarray(a,b,n,m));
+        boolean ans=subarray(a,b,n,m);
+        System.out.println(ans);
+        if(ans==false){
+            System.out.println(checkCondition(a,b,n,m));
+        }
         sc.close();
         
     }
