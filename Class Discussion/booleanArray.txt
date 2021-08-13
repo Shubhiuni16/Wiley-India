@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class ProperSubset{
+    public static void isProperSubset(int[] A, int[] B ){
+        if( A.length < B.length ){
+            System.out.print("Not a subset");
+            return;
+        }                              
+        boolean[] present = new boolean[1000];
+        for( int i=0; i<A.length; ++i ){
+            present[ A[i] ] = true;
+        }
+        int missing = 0;
+        for( int i=0; i<B.length; ++i ){
+            if( !present[B[i]] ){
+                ++missing;
+            }
+            if( missing > 1 ){
+                System.out.print("Not a subset at all");
+                return;
+            }
+        }
+        if( missing == 0 && A.length == B.length ){
+            System.out.print("Subset is equal");
+        }
+        else if( missing == 0 ){
+            System.out.print("Proper Subset");
+        }
+        else if( missing == 1 && A.length == B.length){
+            System.out.print("Change one to get equal set");
+        }
+        else if( missing == 1 ){
+            System.out.print("Change one to get Proper Subset");
+        }
+        else{
+            System.out.print("Not a subset at all");
+        }
+        
+    }
+    public static void main(String[] args){
+        int[] A;
+        int[] B;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Size of First Array ? ");
+        int n = sc.nextInt();
+        A = new int[n];
+        for( int i=0; i<n; ++i ){
+            A[i] = sc.nextInt();
+        }
+        System.out.print("Size of Second Array ? ");
+        n = sc.nextInt();
+        B = new int[n];
+        for( int i=0; i<n; ++i ){
+            B[i] = sc.nextInt();
+        }
+
+        isProperSubset(A,B);
+    }
+}
