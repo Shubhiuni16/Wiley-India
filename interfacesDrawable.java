@@ -125,6 +125,7 @@ interface Foo {
     int dummy = Bar.haveSideEffect();
 
     void bla();
+    
 }
 
 class Bar {
